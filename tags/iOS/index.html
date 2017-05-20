@@ -1,0 +1,22 @@
+<!DOCTYPE html><html lang="zh-cn"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=Edge"><meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"><meta name="format-detection" content="telephone=no"><meta name="format-detection" content="email=no"><meta name="description" content="Be a better man"><meta name="keywords" content="Hexo, iOS"><title>iosTangtang</title><link rel="stylesheet" href="/css/main_style.min.css"><link rel="icon" href="/favicon.ico"></head><body><input id="navi" type="checkbox"><ul class="main-navication"><li><a href="/"><span>Home</span></a></li><li><a href="https://github.com/iosTangtang"><span>Github</span></a></li></ul><div class="wrapper" id="wrap"><div class="page-header"><label class="navi-button" for="navi">MENU</label><div class="background"><img src="http://callfiles.ueibo.com/hexo-theme-laughing/page_background.jpg"></div><div class="author"><div class="head"><img src="http://om50f51ai.bkt.clouddn.com/UNADJUSTEDNONRAW_thumb_427.jpg"></div><h3 class="name">iosTangtang</h3><p class="signature">Be a better man</p></div></div><ul class="post-list" style="max-width:800px"><li> <p class="date">2017年5月20日</p><h4 class="title"><a href="/2017/05/20/Runtime/">Objc Runtime</a></h4><div class="excerpt"><h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><p>本文主要是对Runtime学习的一部分总结，也是作为实验室讲课的资料，写的不好或者哪里不对的地方欢迎交流指正。</p>
+<h2 id="知识结构"><a href="#知识结构" class="headerlink" title="知识结构"></a>知识结构</h2><p>主要从runtime的主要几个大点进行讲解。包括 </p>
+<ul>
+<li>何为Rumtime</li>
+<li>类与对象<ol>
+<li>类的结构(基础数据结构)</li>
+<li>实例对象、类对象、元类之间的关系</li>
+<li>类中对应的方法的结构</li>
+</ol>
+</li>
+<li>消息转发机制</li>
+<li>self与super的区别</li>
+<li>简单应用</li>
+</ul>
+<h2 id="何为Runtime"><a href="#何为Runtime" class="headerlink" title="何为Runtime"></a>何为Runtime</h2><p>什么是Runtime呢？引用Apple官方的一段话</p>
+<blockquote>
+<p>The Objective-C language defers as many decisions as it can from compile time and link time to runtime. Whenever possible, it does things dynamically. This means that the language requires not just a compiler, but also a runtime system to execute the compiled code. The runtime system acts as a kind of operating system for the Objective-C language; it’s what makes the language work.</p>
+</blockquote>
+<p>这段话的意思大概就是，OC将一些静态语言在编译链接时做的事推迟到了编译链接之后，也就是运行时，这使得其更加灵活。这意味着OC不仅需要一个编译器，还需要一个运行时系统来执行编译的代码。运行时机制就像一个操作系统一样，它让所有的工作能够正常的运行。<br>Objc Runtime其实就是一个Runtime库，底层实现基本上是用C/C++和汇编写的。对C语言结构体及函数进行封装，再实现一些特性，使程序在运行时能够创建、修改、检查类、对象以及对应的方法。</p></div><ul class="meta"><li><i class="icon icon-author"></i>iosTangtang</li><li><i class="icon icon-clock"></i>70 Minutes</li><li><i class="icon icon-category"></i><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/iOS/">iOS</a><span class="category-list-count">2</span></li></ul></li></ul></li><li> <p class="date">2017年5月20日</p><h4 class="title"><a href="/2017/05/20/Block/">探究 Block</a></h4><div class="excerpt"></div><ul class="meta"><li><i class="icon icon-author"></i>iosTangtang</li><li><i class="icon icon-clock"></i>48 Minutes</li><li><i class="icon icon-category"></i><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/iOS/">iOS</a><span class="category-list-count">2</span></li></ul></li></ul></li></ul><ul class="pagination"><li class="current"><a>1</a></li></ul><div class="page-footer"><div class="top"><ul class="social"><li><a href="https://github.com/iosTangtang" title="Github" target="_blank"><i class="icon icon-github"></i></a></li><li><a href="http://weibo.com/u/2942054403" title="Weibo" target="_blank"><i class="icon icon-weibo"></i></a></li><li><a href="http://zhihu.com/people/tang-tang-45-9-68" title="Zhihu" target="_blank"><i class="icon icon-zhihu"></i></a></li><li><a href="iosTangtang@163.com" title="Email" target="_blank"><i class="icon icon-email"></i></a></li></ul></div><div class="bottom"><p class="copyright">© 2017 iosTangtang<br><small>POWER BY <a href="https://hexo.io" target="_blank">HEXO</a></small><small>, THEME BY <a href="https://github.com/BoizZ/hexo-theme-laughing" target="_blank">LAUGHING</a></small></p></div></div></div><script>var wrap = document.getElementById('wrap');
+window.onload = function () {
+  wrap.className += ' done';
+}</script></body></html>

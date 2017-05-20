@@ -1,0 +1,122 @@
+<!DOCTYPE html><html lang="zh-cn"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=Edge"><meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"><meta name="format-detection" content="telephone=no"><meta name="format-detection" content="email=no"><meta name="description" content="Be a better man"><meta name="keywords" content="Hexo, iOS"><title>GitHub + Hexo 搭建个人博客 - iosTangtang</title><link rel="stylesheet" href="/css/main_style.min.css"><link rel="icon" href="/favicon.ico"></head><body><input id="navi" type="checkbox"><ul class="main-navication"><li><a href="/"><span>Home</span></a></li><li><a href="https://github.com/iosTangtang"><span>Github</span></a></li></ul><div class="wrapper" id="wrap"><div class="post-header"><label class="navi-button light" for="navi">MENU</label><img class="background" src="http://callfiles.ueibo.com/hexo-theme-laughing/post_background.jpg"><div class="post-title"><h1 class="title">GitHub + Hexo 搭建个人博客</h1><ul class="meta"><li><i class="icon icon-author"></i>iosTangtang</li><li><i class="icon icon-clock"></i>15 Minutes</li><li><i class="icon icon-calendar"></i>2017年5月20日</li></ul></div></div><div class="article-content" style="max-width:800px"><h2 id="balabala"><a href="#balabala" class="headerlink" title="balabala"></a>balabala</h2><p>很早之前就想自己搭一个博客了，但是一直忙于各种各样的事情，就把这件事耽搁了。最近闲了下来，就想起这件事了，既然没事干，那就给自己搭个博客呗。</p>
+<p>因为没有学过前端的知识，所以就放弃了自己上手写博客的想法。看到 GitHub 就想到了，能否用 GitHub 配合什么来搭建一个，然后就去网上查了查，看到了 Hexo。然后粗略地扫了一眼别人写的搭建过程，感觉还挺简单的，就上手去做了。整个过程下来也不是很麻烦，但是自己也踩了几个坑，于是就想着在这里叨叨几句。</p>
+<p>注：本次配置时基于 Mac 电脑的，对于 Windows，可以参考<a href="http://blog.csdn.net/qq_36099238/article/details/54565172" target="_blank" rel="external">这篇文章</a>。若你的电脑上已经有下面提到的某个环境，可以选择跳过。</p>
+<h2 id="整体流程"><a href="#整体流程" class="headerlink" title="整体流程"></a>整体流程</h2><ol>
+<li>安装 Node.js</li>
+<li>注册 GitHub 账号</li>
+<li>创建项目仓库</li>
+<li>配置公钥</li>
+<li>安装 Git</li>
+<li>在本地设置个人信息</li>
+<li>安装配置 Hexo</li>
+<li>发布一篇博文</li>
+<li>与 GitHub 建立连接</li>
+</ol>
+<h2 id="安装-Node-js"><a href="#安装-Node-js" class="headerlink" title="安装 Node.js"></a>安装 Node.js</h2><p>如果你的机子上已经有 <code>Node.js</code> 的环境了，那么你可以跳过这个步骤。</p>
+<p>这个环境的搭建相对比较简单，所以先讲。配置过程很简单，前往<a href="https://nodejs.org/en/" target="_blank" rel="external">Node.js 官网</a>下载 <code>Node.js</code> 的安装包。</p>
+<a id="more"></a>
+<p><img src="http://om50f51ai.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-05-20%20%E4%B8%8B%E5%8D%881.31.49.png" alt="Node.js 官网"></p>
+<p>安装包分为通用版和最新版，根据你个人自主选择安装包，下载之后按照通用步骤下一步下一步安装即可。安装完之后，在终端中输入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># node -v</div></pre></td></tr></table></figure>
+<p>若出现版本信息，即安装成功。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># node -v</div><div class="line">v7.10.0</div></pre></td></tr></table></figure>
+<h2 id="注册-GitHub-账号"><a href="#注册-GitHub-账号" class="headerlink" title="注册 GitHub 账号"></a>注册 GitHub 账号</h2><p>已经有 GitHub 账号的就直接登录即可。</p>
+<p>注册账号就不用多说了，直接前往<a href="https://github.com" target="_blank" rel="external">GitHub 官网</a>进行注册即可。</p>
+<h2 id="创建项目仓库"><a href="#创建项目仓库" class="headerlink" title="创建项目仓库"></a>创建项目仓库</h2><p>登录 GitHub 之后，点击右上角的加号，如图：</p>
+<p><img src="http://om50f51ai.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-05-20%20%E4%B8%8B%E5%8D%881.38.40.png" alt="创建仓库"></p>
+<p>选择 <code>New repository</code>，进入后会看到如下界面：</p>
+<p><img src="http://om50f51ai.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-05-20%20%E4%B8%8B%E5%8D%881.39.02.png" alt="仓库建立"></p>
+<p>注意：<code>Repository name</code> 的格式一定是 <code>Github昵称.github.io</code>。</p>
+<p>输入 <code>Repsitory name</code> 之后，就可以点击 <code>Create repository</code> 进行项目创建。项目创建完之后，最好创建一个 <code>README.md</code> 文件，这样你的 <code>master</code> 分支就出来了，这样 GitHub 就会默认为你开启 GitHub Pages。</p>
+<p><img src="http://om50f51ai.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-05-20%20%E4%B8%8B%E5%8D%881.45.23.png" alt="GitHub Pages"></p>
+<h2 id="配置公钥"><a href="#配置公钥" class="headerlink" title="配置公钥"></a>配置公钥</h2><p>在终端中输入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh-keygen -t rsa -C “GitHub 的注册邮件地址&quot;</div></pre></td></tr></table></figure>
+<p>之后会让你输入文件名以及密码，输入完之后即可完成密钥生成。密钥生成之后，会得到两个文件，分别是 rsa 和 rsa.pub，可以使用终端或者其他的打开 <code>.pub</code> 后缀的文件，复制其内容，前往 GitHub 的<a href="https://github.com/settings/keys" target="_blank" rel="external">公钥设置页面</a>，点击 <code>New SSH key</code>，会出现如下界面：</p>
+<p><img src="http://om50f51ai.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-05-20%20%E4%B8%8B%E5%8D%881.53.35.png" alt="SSH 添加"></p>
+<p>Title 随便起就好，将你复制的内容粘贴到 key 中，然后点击 <code>Add SSH key</code> 即可。</p>
+<h2 id="安装-Git"><a href="#安装-Git" class="headerlink" title="安装 Git"></a>安装 Git</h2><p>同样的，如果你已经安装好 Git，可以跳过这个步骤。Mac 电脑上默认安装好了 Git，如果你不想折腾的话，可以直接用系统自带的 Git，但是版本相对比较低。</p>
+<p>首先，前往<a href="https://git-scm.com/downloads" target="_blank" rel="external">Git 官网下载页面</a>，根据你的操作系统选择相应的 Git 版本。然后还是一样，一直下一步下一步安装即可。安装完之后，输入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># git --version</div></pre></td></tr></table></figure>
+<p>出现 Git 的版本，说明已经安装成功。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># git --version</div><div class="line">git version 2.6.4</div></pre></td></tr></table></figure>
+<h2 id="设置个人信息"><a href="#设置个人信息" class="headerlink" title="设置个人信息"></a>设置个人信息</h2><p>在终端中输入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git config –global user.name “xxxxx”</div><div class="line">git config –global user.email  GitHub注册邮箱地址</div></pre></td></tr></table></figure>
+<p>进行 Git 的全局配置。</p>
+<p>到此，Git 的配置基本差不多了。</p>
+<h2 id="安装配置-Hexo"><a href="#安装配置-Hexo" class="headerlink" title="安装配置 Hexo"></a>安装配置 Hexo</h2><p>这一步很关键，博客搭没搭好就看这一步了。若能力比较好的同学，可以去<a href="https://hexo.io" target="_blank" rel="external">Hexo 官网</a>阅读文档安装。或者，也可以继续看下去。</p>
+<p>注：这一步如果你不想出现什么奇葩的现象，推荐你开启 <code>root</code> 权限。使用：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># su root</div></pre></td></tr></table></figure>
+<p>去开启你的 <code>root</code> 权限。</p>
+<h4 id="进入放置博客的文件夹"><a href="#进入放置博客的文件夹" class="headerlink" title="进入放置博客的文件夹"></a>进入放置博客的文件夹</h4><p>首先，找一个地方用来放置你的博客。我做测试则直接放在了桌面上，具体放在哪儿你自己决定。进入你的博客放置地点：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># cd TestHexo/</div></pre></td></tr></table></figure>
+<h4 id="下载安装-Hexo"><a href="#下载安装-Hexo" class="headerlink" title="下载安装 Hexo"></a>下载安装 Hexo</h4><p>在终端中输入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># npm install -g hexo-cli</div></pre></td></tr></table></figure>
+<p>等待一段时间后(时间不长)，就会完成安装。完成安装后，在终端中输入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># hexo</div></pre></td></tr></table></figure>
+<p>若出现下列信息，说明安装成功。</p>
+<p><img src="http://om50f51ai.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-05-20%20%E4%B8%8B%E5%8D%882.10.15.png" alt="Hexo"></p>
+<h4 id="初始化博客文件夹"><a href="#初始化博客文件夹" class="headerlink" title="初始化博客文件夹"></a>初始化博客文件夹</h4><p>在终端中输入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># hexo init TestHexo 		// TestHexo 是新建的博客文件夹，你可以使用你自己的名字</div></pre></td></tr></table></figure>
+<p>等待一段时间后，看到如下提示信息：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">INFO  Start blogging with Hexo!</div></pre></td></tr></table></figure>
+<p>说明初始化成功，进入博客文件夹：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># cd TestHexo/</div></pre></td></tr></table></figure>
+<p>使用如下命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># npm install</div></pre></td></tr></table></figure>
+<p>继续初始化，结束之后，在文件夹中会多出许多文件夹和文件；</p>
+<p><img src="http://om50f51ai.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-05-20%20%E4%B8%8B%E5%8D%882.16.26.png" alt="文件夹"></p>
+<h4 id="修改配置信息"><a href="#修改配置信息" class="headerlink" title="修改配置信息"></a>修改配置信息</h4><p>找到 <code>_config.yml</code> 文件并打开。修改如下几个地方：</p>
+<p><img src="http://om50f51ai.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-05-20%20%E4%B8%8B%E5%8D%882.18.28.png" alt="site1"></p>
+<p><img src="http://om50f51ai.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-05-20%20%E4%B8%8B%E5%8D%882.18.35.png" alt="site2"></p>
+<p>第一个是修改网站的相关信息的，第二个是用来配置部署的，即在 GitHub 上部署。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">title: iosTangtang</div><div class="line">subtitle:</div><div class="line">description: Be a better man</div><div class="line">author: iosTangtang</div><div class="line">language: zh-CN</div><div class="line">timezone: Asia/Shanghai</div></pre></td></tr></table></figure>
+<p>可以借鉴我的配置，根据你的实际情况来修改。</p>
+<p>Git 的部署比较统一，如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line">  type: git</div><div class="line">  repo: git@github.com:iosTangtang/iosTangtang.github.io.git</div><div class="line">  branch: master</div></pre></td></tr></table></figure>
+<p><code>repo</code> 是你之前 GitHub 创建好的项目仓库的地址，默认使用 <code>master</code> 分支。</p>
+<p>到这里，Hexo 的基本配置就配好了。</p>
+<h2 id="发布一篇博文"><a href="#发布一篇博文" class="headerlink" title="发布一篇博文"></a>发布一篇博文</h2><p>在终端中使用如下命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># hexo new &quot;Hello&quot;</div></pre></td></tr></table></figure>
+<p>出现如下提示之后，说明创建成功：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">INFO  Created: /Users/Tangtang/Desktop/Hexo/source/_posts/Hello.md</div></pre></td></tr></table></figure>
+<p>我们可以在本地博客文件夹的 <code>source</code> -&gt; <code>_post</code> 文件夹下看到新建的 MarkDown 文件。</p>
+<p><img src="http://om50f51ai.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-05-20%20%E4%B8%8B%E5%8D%882.25.51.png" alt="_post"></p>
+<p>你可以使用本地 MarkDown 编辑器进行编辑，保存之后，使用如下命令进行本地发布：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># hexo server</div></pre></td></tr></table></figure>
+<p>根据提示，打开浏览器，输入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://localhost:4000/</div></pre></td></tr></table></figure>
+<p>就能看到搭建好的博客和发布的文章。这里因为我自己更换了主题，所以借用一张网上的界面图片来展示：</p>
+<p><img src="http://om50f51ai.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-05-20%20%E4%B8%8B%E5%8D%882.30.56.png" alt="本地博客发布"></p>
+<p>若有问题，请联系我删除。</p>
+<h2 id="与-Github-建立连接"><a href="#与-Github-建立连接" class="headerlink" title="与 Github 建立连接"></a>与 Github 建立连接</h2><p>这样只是本地可以看见，如果要让别人也看见呢？在终端输入这样的命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># hexo g					</div><div class="line"># hexo d</div></pre></td></tr></table></figure>
+<p>或者连起来</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># hexo g --d</div></pre></td></tr></table></figure>
+<p>就可以通过 <code>Github昵称.github.io</code> 进行访问了。例如我的博客：<a href="https://iostangtang.github.io" target="_blank" rel="external">iostangtang.github.io</a></p>
+<p>注：每次重新发布的时候，最好先使用：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># hexo clean</div></pre></td></tr></table></figure>
+<p>清除一下。</p>
+<h2 id="主题设置"><a href="#主题设置" class="headerlink" title="主题设置"></a>主题设置</h2><p>可以前往 <a href="https://hexo.io/themes/" target="_blank" rel="external">Hexo 主题网站</a> 去选择自己心仪的主题，然后进入相应的 Github 中根据作者的文档进行设置。</p>
+<p>过程几乎都是：</p>
+<ol>
+<li>先将相应的主题使用 <code>git clone</code> 命令克隆到 <code>themes</code> 中</li>
+<li>进入 <code>_config.yml</code> 中将相应的主题修改，如下</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"># Extensions</div><div class="line">## Plugins: https://hexo.io/plugins/</div><div class="line">## Themes: https://hexo.io/themes/</div><div class="line">theme: hexo-theme-laughing</div></pre></td></tr></table></figure>
+<p><code>theme：</code> 后面就是你使用的主题名称。</p>
+<p>再有的一些细节请根据作者的文档进行修改。</p>
+<h2 id="域名绑定"><a href="#域名绑定" class="headerlink" title="域名绑定"></a>域名绑定</h2><p>先前往万网或者腾讯云中去注册一个域名。我使用的是腾讯云，所以就腾讯云来讲吧。</p>
+<p>注册付款之后，进入管理页面。</p>
+<p><img src="http://om50f51ai.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-05-20%20%E4%B8%8B%E5%8D%882.44.54.png" alt="管理"></p>
+<p>点击解析：</p>
+<p><img src="http://om50f51ai.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-05-20%20%E4%B8%8B%E5%8D%882.45.43.png" alt="解析"></p>
+<p>设置 github.io</p>
+<p><img src="http://om50f51ai.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-05-20%20%E4%B8%8B%E5%8D%882.46.17.png" alt="解析"></p>
+<p>确定之后即可。然后在本地博客文件夹中，进入 <code>source</code> 文件夹中，创建 <code>CNAME</code> 文件，注意不要有后缀，在文件中写入你注册的域名，保存退出。这样，就可以通过你的域名访问你的博客了。</p>
+<p>注：记得你注册的域名要先认证。</p>
+<h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>整个博客的搭建过程基本差不多，这样搭建的博客可以满足你的基本需求，还有其他的功能，比如说评论呀、统计人数呀啥的，等以后我再慢慢加上，一口吃不成个胖子，慢慢来吧。</p>
+<p>若文中有错误或者不清楚的地方，可以联系我。</p>
+</div><div class="article-meta" style="max-width:800px"><div class="tags"><i class="icon icon-tag"></i><ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/GitHub/">GitHub</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a><span class="tag-list-count">1</span></li></ul></div><div class="categories"><i class="icon icon-category"></i><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/GitHub/">GitHub</a><span class="category-list-count">1</span></li></ul></div></div><ul class="navication"><li class="home"><a href="/"><i class="icon icon-home"></i></a></li><li><a href="/2017/05/17/whyBulidBlog/"><i class="icon icon-arror-right"></i></a></li></ul><div class="page-footer"><div class="top"><ul class="social"><li><a href="https://github.com/iosTangtang" title="Github" target="_blank"><i class="icon icon-github"></i></a></li><li><a href="http://weibo.com/u/2942054403" title="Weibo" target="_blank"><i class="icon icon-weibo"></i></a></li><li><a href="http://zhihu.com/people/tang-tang-45-9-68" title="Zhihu" target="_blank"><i class="icon icon-zhihu"></i></a></li><li><a href="iosTangtang@163.com" title="Email" target="_blank"><i class="icon icon-email"></i></a></li></ul></div><div class="bottom"><p class="copyright">© 2017 iosTangtang<br><small>POWER BY <a href="https://hexo.io" target="_blank">HEXO</a></small><small>, THEME BY <a href="https://github.com/BoizZ/hexo-theme-laughing" target="_blank">LAUGHING</a></small></p></div></div></div><script>var wrap = document.getElementById('wrap');
+window.onload = function () {
+  wrap.className += ' done';
+}</script></body></html>
